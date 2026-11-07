@@ -147,6 +147,12 @@ var ambient_sounds: Array = [
 ]
 
 
+
+func _make_white_1x1() -> ImageTexture:
+    var img := Image.create(1, 1, false, Image.FORMAT_RGBA8)
+    img.fill(Color.WHITE)
+    return ImageTexture.create_from_image(img)
+
 # ============================================================
 # HILFSFUNKTIONEN
 # ============================================================
@@ -440,7 +446,15 @@ func _on_footstep_timer_timeout() -> void:
 # UI
 # ============================================================
 
+func _make_white_1x1() -> ImageTexture:
+    var img := Image.create(1, 1, false, Image.FORMAT_RGBA8)
+    img.fill(Color.WHITE)
+    return ImageTexture.create_from_image(img)
+
+
 func _create_ui() -> void:
+
+    var vp_size: Vector2 = get_viewport().get_visible_rect().size
     var canvas = CanvasLayer.new()
     add_child(canvas)
 
@@ -524,13 +538,13 @@ func _create_ui() -> void:
     # NOTIZEN-UI
     note_ui = Control.new()
     note_ui.position = Vector2(0, 0)
-    note_ui.size = Vector2(get_viewport_rect().size)
+    note_ui.size = Vector2(vp_size)
     note_ui.visible = false
     note_ui.self_modulate = Color(0, 0, 0, 0.8)
     
     var note_text = RichTextLabel.new()
     note_text.position = Vector2(50, 50)
-    note_text.size = Vector2(get_viewport_rect().size.x - 100, get_viewport_rect().size.y - 100)
+    note_text.size = Vector2(vp_size.x - 100, vp_size.y - 100)
     note_text.font_size = 20
     note_text.background_color = Color(0.1, 0.1, 0.1, 0.9)
     note_ui.add_child(note_text)
@@ -538,7 +552,7 @@ func _create_ui() -> void:
     var close_btn = Button.new()
     close_btn.text = "X"
     close_btn.font_size = 24
-    close_btn.position = Vector2(get_viewport_rect().size.x - 50, 10)
+    close_btn.position = Vector2(vp_size.x - 50, 10)
     close_btn.size = Vector2(40, 40)
     close_btn.pressed.connect(func(): note_ui.visible = false)
     note_ui.add_child(close_btn)
@@ -547,7 +561,7 @@ func _create_ui() -> void:
 
     # AUFGABEN-UI
     tasks_ui = Control.new()
-    tasks_ui.position = Vector2(get_viewport_rect().size.x - 310, 10)
+    tasks_ui.position = Vector2(vp_size.x - 310, 10)
     tasks_ui.size = Vector2(300, 400)
     tasks_ui.visible = false
     tasks_ui.self_modulate = Color(1, 1, 1, 0.9)
@@ -576,17 +590,13 @@ func _create_ui() -> void:
     crosshair.size = Vector2(20, 20)
     
     var cross_h = TextureRect.new()
-    cross_h.texture = Texture2D.new()
-    cross_h.texture.create(1, 1, Image.FORMAT_RF, Image.USAGE_SAMPLING)
-    cross_h.texture.fill(Color.WHITE)
+    cross_h.texture = _make_white_1x1()
     cross_h.size = Vector2(20, 2)
     cross_h.position = Vector2(0, 9)
     crosshair.add_child(cross_h)
     
     var cross_v = TextureRect.new()
-    cross_v.texture = Texture2D.new()
-    cross_v.texture.create(1, 1, Image.FORMAT_RF, Image.USAGE_SAMPLING)
-    cross_v.texture.fill(Color.WHITE)
+    cross_v.texture = _make_white_1x1()
     cross_v.size = Vector2(2, 20)
     cross_v.position = Vector2(9, 0)
     crosshair.add_child(cross_v)
@@ -888,7 +898,6 @@ func _ready():
     area.body_entered.connect(_on_body_entered)
     area.body_exited.connect(_on_body_exited)
     initial_rotation = rotation.y
-    secret_passage = get_parent().get_parent().get_node_or_null(get_name().replace("RotatingBookshelf_", "SecretPassage_"))
     if secret_passage:
         secret_passage.visible = false
 func _on_body_entered(body):
@@ -1932,7 +1941,7 @@ func _build_attic() -> void:
     var crate_at5 = _create_pushable_object(at, Vector3(20, y, 19), Vector3(0.8, 0.8, 0.8), m["wood_light"])
 
     # Bücherregal
-    var bookshelf_at1 = _create_rotating_bookshelf(at, Vector3(23, y, 17), m)
+    var bookshelf_at1 = _create_rotating_bookshelf(at, Vector3(23, y, 17), Vector3(2.0, 2.4, 0.4), m)
 
     # --- VERRIEGELTE TUER (BRAUCHT MASTER-KEY) ---
     var master_door = _create_door(at, Vector3(12, y, 0), Vector3(DOOR_W, DOOR_H, 0.1), m["wood_dark"], true, "master_key", "master")

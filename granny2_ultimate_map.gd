@@ -174,7 +174,7 @@ func _box(parent: Node3D, pos: Vector3, size: Vector3, mat: Material, collide: b
         collision.shape = BoxShape3D.new()
         collision.shape.size = size
         collision.position = pos
-        parent.add_child(collision)
+       parent.add_child(collision)
 
 func _cyl(parent: Node3D, pos: Vector3, radius: float, height: float, mat: Material, collide: bool) -> void:
     var mesh = MeshInstance3D.new()
@@ -190,7 +190,7 @@ func _cyl(parent: Node3D, pos: Vector3, radius: float, height: float, mat: Mater
         collision.shape.radius = radius
         collision.shape.height = height
         collision.position = pos
-        parent.add_child(collision)
+       parent.add_child(collision)
 
 func _floor(parent: Node3D, x1: float, x2: float, z1: float, z2: float, y: float, mat: Material) -> void:
     var size = Vector3(x2 - x1, 0.1, z2 - z1)
@@ -604,7 +604,7 @@ func _update_inventory_ui() -> void:
             label.font_size = 18
             label.position = Vector2(10, y)
             label.size = Vector2(260, 25)
-            keys_container.add_child(label)
+          keys_container.add_child(label)
             y += 25
     
     var tools_container = inventory_ui.get_child(5)
@@ -617,7 +617,7 @@ func _update_inventory_ui() -> void:
             label.font_size = 18
             label.position = Vector2(10, y)
             label.size = Vector2(260, 25)
-            tools_container.add_child(label)
+          tools_container.add_child(label)
             y += 25
     
     var notes_container = inventory_ui.get_child(7)
@@ -631,7 +631,7 @@ func _update_inventory_ui() -> void:
             btn.position = Vector2(10, y)
             btn.size = Vector2(260, 25)
             btn.pressed.connect(func(): _show_note(note_id))
-            notes_container.add_child(btn)
+          notes_container.add_child(btn)
             y += 25
 
 func _update_tasks_ui() -> void:
@@ -645,7 +645,7 @@ func _update_tasks_ui() -> void:
         label.position = Vector2(10, y)
         label.size = Vector2(260, 25)
         label.self_modulate = Color(0.5, 0.8, 0.5) if task["completed"] else Color(1, 0.8, 0.8)
-        container.add_child(label)
+       container.add_child(label)
         y += 25
 
 func _show_interaction(text: String) -> void:
@@ -1481,7 +1481,7 @@ func _build_eg() -> void:
     _box(sofa_eg1, Vector3(1.0, 0.5, 0), Vector3(0.2, 0.5, 0.95), m["fabric"], true)
     _box(sofa_eg1, Vector3(-0.5, 0.45, -0.2), Vector3(0.35, 0.15, 0.35), mat_white, false)
     _box(sofa_eg1, Vector3(0.5, 0.45, -0.2), Vector3(0.35, 0.15, 0.35), mat_white, false)
-     eg.add_child(sofa_eg1)
+    eg.add_child(sofa_eg1)
 
     # Sessel
     var armchair_eg1 = Node3D.new()
@@ -1491,7 +1491,7 @@ func _build_eg() -> void:
     _box(armchair_eg1, Vector3(0, 0.6, -0.4), Vector3(0.9, 0.6, 0.15), m["fabric"], true)
     _box(armchair_eg1, Vector3(-0.4, 0.5, 0), Vector3(0.15, 0.5, 0.9), m["fabric"], true)
     _box(armchair_eg1, Vector3(0.4, 0.5, 0), Vector3(0.15, 0.5, 0.9), m["fabric"], true)
-     eg.add_child(armchair_eg1)
+    eg.add_child(armchair_eg1)
 
     # Kaffeetisch
     var table_eg1 = Node3D.new()
@@ -1501,7 +1501,7 @@ func _build_eg() -> void:
     for dx in [-0.5, 0.5]:
         for dz in [-0.25, 0.25]:
             _box(table_eg1, Vector3(dx, 0.21, dz), Vector3(0.06, 0.42, 0.06), m["wood"], false)
-     eg.add_child(table_eg1)
+    eg.add_child(table_eg1)
 
     # TV
     var tv_eg1 = Node3D.new()
@@ -1511,7 +1511,7 @@ func _build_eg() -> void:
     _box(tv_eg1, Vector3(0, 0.5, 0), Vector3(0.7, 0.6, 0.55), m["wood_dark"], true)
     _box(tv_eg1, Vector3(0, 0.5, 0.28), Vector3(0.55, 0.45, 0.02), mat_black, false)
     _box(tv_eg1, Vector3(0.2, 0.4, 0.29), Vector3(0.08, 0.08, 0.01), mat_gold, false)
-     eg.add_child(tv_eg1)
+    eg.add_child(tv_eg1)
 
     # Kamin
     var fireplace_eg1 = Node3D.new()
@@ -1527,7 +1527,7 @@ func _build_eg() -> void:
     light_fire.omni_range = 4.0
     light_fire.add_to_group("lights")
     fireplace_eg1.add_child(light_fire)
-     eg.add_child(fireplace_eg1)
+    eg.add_child(fireplace_eg1)
 
     # --- KUECHE (LINKS HINTEN) ---
     # Arbeitsplatte
@@ -1538,7 +1538,7 @@ func _build_eg() -> void:
     _box(counter_eg1, Vector3(0, 0.425, 0), Vector3(1.95, 0.42, 0.65), m["wood_dark"], true)
     for i in range(3):
         _box(counter_eg1, Vector3(0.2, 0.25 + i*0.25, 0.33), Vector3(0.04, 0.03, 0.02), mat_gold, false)
-     eg.add_child(counter_eg1)
+    eg.add_child(counter_eg1)
 
     # Spuele
     var sink_eg1 = Node3D.new()
@@ -1547,7 +1547,7 @@ func _build_eg() -> void:
     _box(sink_eg1, Vector3(0, 0.85, 0), Vector3(0.8, 0.1, 0.5), m["metal"], true)
     _box(sink_eg1, Vector3(0, 0.4, 0), Vector3(0.1, 0.8, 0.1), m["metal"], false)
     _box(sink_eg1, Vector3(0.25, 1.0, -0.15), Vector3(0.05, 0.15, 0.1), m["metal"], false)
-     eg.add_child(sink_eg1)
+    eg.add_child(sink_eg1)
 
     # Herd
     var stove_eg1 = Node3D.new()
@@ -1558,7 +1558,7 @@ func _build_eg() -> void:
     for i in range(2):
         for j in range(2):
             _cyl(stove_eg1, Vector3(-0.2 + i*0.4, 0.95, -0.18 + j*0.36), 0.1, 0.02, mat_metal_rusty, false)
-     eg.add_child(stove_eg1)
+    eg.add_child(stove_eg1)
 
     # Kuehlschrank
     var fridge_eg1 = Node3D.new()
@@ -1567,7 +1567,7 @@ func _build_eg() -> void:
     _box(fridge_eg1, Vector3(0, 0.85, 0), Vector3(0.75, 1.7, 0.65), mat_white, true)
     _box(fridge_eg1, Vector3(0, 1.2, 0.33), Vector3(0.02, 1.4, 0.02), mat_black, false)
     _box(fridge_eg1, Vector3(0.3, 1.1, 0.34), Vector3(0.04, 0.15, 0.03), m["metal"], false)
-     eg.add_child(fridge_eg1)
+    eg.add_child(fridge_eg1)
 
     # --- ESSTISCH (RECHTS VORNE) ---
     # Tisch
@@ -1578,7 +1578,7 @@ func _build_eg() -> void:
     for dx in [-0.72, 0.72]:
         for dz in [-0.36, 0.36]:
             _box(table_eg2, Vector3(dx, 0.375, dz), Vector3(0.08, 0.75, 0.08), m["wood"], false)
-     eg.add_child(table_eg2)
+    eg.add_child(table_eg2)
 
     # Stuehle
     for i in range(4):
@@ -1592,7 +1592,7 @@ func _build_eg() -> void:
         for dx in [-0.2, 0.2]:
             for dz in [-0.2, 0.2]:
                 _box(chair, Vector3(dx, 0.225, dz), Vector3(0.05, 0.45, 0.05), m["wood"], false)
-         eg.add_child(chair)
+        eg.add_child(chair)
 
     # --- SCHLAFZIMMER (RECHTS HINTEN) ---
     # Bett
@@ -1609,7 +1609,7 @@ func _build_eg() -> void:
     _box(wardrobe_eg1, Vector3(0, 1.1, 0.36), Vector3(0.02, 2.0, 0.01), mat_black, false)
     _box(wardrobe_eg1, Vector3(-0.08, 1.2, 0.37), Vector3(0.04, 0.15, 0.03), mat_gold, false)
     _box(wardrobe_eg1, Vector3(0.08, 1.2, 0.37), Vector3(0.04, 0.15, 0.03), mat_gold, false)
-     eg.add_child(wardrobe_eg1)
+    eg.add_child(wardrobe_eg1)
 
     # Nachttisch
     var nightstand_eg1 = Node3D.new()
@@ -1617,7 +1617,7 @@ func _build_eg() -> void:
     nightstand_eg1.position = Vector3(20, y, 18)
     _box(nightstand_eg1, Vector3(0, 0.3, 0), Vector3(0.55, 0.6, 0.5), m["wood_dark"], true)
     _box(nightstand_eg1, Vector3(0, 0.6, 0), Vector3(0.6, 0.05, 0.55), m["wood_light"], false)
-     eg.add_child(nightstand_eg1)
+    eg.add_child(nightstand_eg1)
 
     # --- VERRIEGELTE TUER (BRAUCHT KELLER-SCHLUESSEL) ---
     var door_eg1 = _create_door(eg, Vector3(4, y, 8), Vector3(DOOR_W, DOOR_H, 0.1), m["wood_dark"], true, "keller_key", "keller")
@@ -1637,7 +1637,7 @@ func _build_eg() -> void:
     light1.light_energy = 1.2
     light1.omni_range = 6.0
     light1.add_to_group("lights")
-     eg.add_child(light1)
+    eg.add_child(light1)
     light_switches.append(light1)
 
     var light2 = OmniLight3D.new()
@@ -1646,7 +1646,7 @@ func _build_eg() -> void:
     light2.light_energy = 1.2
     light2.omni_range = 6.0
     light2.add_to_group("lights")
-     eg.add_child(light2)
+    eg.add_child(light2)
     light_switches.append(light2)
 
     var light3 = OmniLight3D.new()
@@ -1655,7 +1655,7 @@ func _build_eg() -> void:
     light3.light_energy = 0.8
     light3.omni_range = 5.0
     light3.add_to_group("lights")
-     eg.add_child(light3)
+    eg.add_child(light3)
     light_switches.append(light3)
 
     # Lichtschalter
@@ -1712,7 +1712,7 @@ func _build_og() -> void:
     wardrobe_og1.position = Vector3(5, y, 2)
     _box(wardrobe_og1, Vector3(0, 1.1, 0), Vector3(1.3, 2.2, 0.7), m["wood_dark"], true)
     _box(wardrobe_og1, Vector3(0, 1.1, 0.36), Vector3(0.02, 2.0, 0.01), mat_black, false)
-     og.add_child(wardrobe_og1)
+    og.add_child(wardrobe_og1)
 
     # --- BAD (LINKS HINTEN) ---
     # Badewanne
@@ -1722,7 +1722,7 @@ func _build_og() -> void:
     _box(bathtub_og1, Vector3(0, 0.3, 0), Vector3(1.7, 0.6, 0.8), m["tile"], true)
     _box(bathtub_og1, Vector3(0, 0.55, 0), Vector3(1.5, 0.1, 0.6), mat_white, false)
     _box(bathtub_og1, Vector3(0.75, 0.85, 0), Vector3(0.05, 0.3, 0.05), m["metal"], false)
-     og.add_child(bathtub_og1)
+    og.add_child(bathtub_og1)
 
     # Toilette
     var toilet_og1 = Node3D.new()
@@ -1731,7 +1731,7 @@ func _build_og() -> void:
     _box(toilet_og1, Vector3(0, 0.2, 0), Vector3(0.5, 0.4, 0.6), mat_ceramic, true)
     _box(toilet_og1, Vector3(0, 0.5, -0.25), Vector3(0.5, 0.4, 0.2), mat_ceramic, true)
     _cyl(toilet_og1, Vector3(0, 0.42, 0), 0.22, 0.05, mat_ceramic, false)
-     og.add_child(toilet_og1)
+    og.add_child(toilet_og1)
 
     # Waschbecken
     var sink_og1 = Node3D.new()
@@ -1740,7 +1740,7 @@ func _build_og() -> void:
     _box(sink_og1, Vector3(0, 0.85, 0), Vector3(0.8, 0.1, 0.5), m["metal"], true)
     _box(sink_og1, Vector3(0, 0.4, 0), Vector3(0.1, 0.8, 0.1), m["metal"], false)
     _box(sink_og1, Vector3(0.25, 1.0, -0.15), Vector3(0.05, 0.15, 0.1), m["metal"], false)
-     og.add_child(sink_og1)
+    og.add_child(sink_og1)
 
     # Spiegel
     var mirror_og1 = Node3D.new()
@@ -1748,7 +1748,7 @@ func _build_og() -> void:
     mirror_og1.position = Vector3(7, y, 17)
     _box(mirror_og1, Vector3(0, 0, 0), Vector3(0.7, 1.2, 0.05), m["wood_dark"], false)
     _box(mirror_og1, Vector3(0, 0, 0.03), Vector3(0.55, 1.05, 0.01), mat_glass, false)
-     og.add_child(mirror_og1)
+    og.add_child(mirror_og1)
 
     # --- BUECHERZIMMER (RECHTS VORNE) ---
     # Bücherregal
@@ -1764,7 +1764,7 @@ func _build_og() -> void:
     for dx in [-0.56, 0.56]:
         for dz in [-0.28, 0.28]:
             _box(table_og2, Vector3(dx, 0.375, dz), Vector3(0.06, 0.75, 0.06), m["wood"], false)
-     og.add_child(table_og2)
+    og.add_child(table_og2)
 
     # Stuhl
     var chair_og1 = Node3D.new()
@@ -1776,7 +1776,7 @@ func _build_og() -> void:
     for dx in [-0.2, 0.2]:
         for dz in [-0.2, 0.2]:
             _box(chair_og1, Vector3(dx, 0.225, dz), Vector3(0.05, 0.45, 0.05), m["wood"], false)
-     og.add_child(chair_og1)
+    og.add_child(chair_og1)
 
     # --- SCHLAFZIMMER (RECHTS HINTEN) ---
     # Bett
@@ -1788,7 +1788,7 @@ func _build_og() -> void:
     _box(bed_og2, Vector3(0, 0.6, -1.05), Vector3(1.6, 0.9, 0.1), m["wood_dark"], true)
     _box(bed_og2, Vector3(-0.4, 0.55, -0.8), Vector3(0.5, 0.15, 0.35), mat_white, false)
     _box(bed_og2, Vector3(0.4, 0.55, -0.8), Vector3(0.5, 0.15, 0.35), mat_white, false)
-     og.add_child(bed_og2)
+    og.add_child(bed_og2)
 
     # Kommode
     var dresser_og1 = Node3D.new()
@@ -1798,7 +1798,7 @@ func _build_og() -> void:
     for i in range(3):
         _box(dresser_og1, Vector3(0, 0.15 + i*0.3, 0.26), Vector3(1.1, 0.25, 0.02), m["wood_light"], false)
         _box(dresser_og1, Vector3(0, 0.15 + i*0.3, 0.28), Vector3(0.15, 0.04, 0.02), mat_gold, false)
-     og.add_child(dresser_og1)
+    og.add_child(dresser_og1)
 
     # --- VERRIEGELTE TUER (BRAUCHT DACHBODEN-SCHLUESSEL) ---
     var door_og1 = _create_door(og, Vector3(12, y, 8), Vector3(DOOR_W, DOOR_H, 0.1), m["wood_dark"], true, "attic_key", "attic")
@@ -1810,7 +1810,7 @@ func _build_og() -> void:
     light1.light_energy = 1.0
     light1.omni_range = 5.0
     light1.add_to_group("lights")
-     og.add_child(light1)
+    og.add_child(light1)
     light_switches.append(light1)
 
     var light2 = OmniLight3D.new()
@@ -1819,7 +1819,7 @@ func _build_og() -> void:
     light2.light_energy = 1.0
     light2.omni_range = 5.0
     light2.add_to_group("lights")
-     og.add_child(light2)
+    og.add_child(light2)
     light_switches.append(light2)
 
     var light3 = OmniLight3D.new()
@@ -1828,7 +1828,7 @@ func _build_og() -> void:
     light3.light_energy = 1.0
     light3.omni_range = 5.0
     light3.add_to_group("lights")
-     og.add_child(light3)
+    og.add_child(light3)
     light_switches.append(light3)
 
     var light4 = OmniLight3D.new()
@@ -1837,7 +1837,7 @@ func _build_og() -> void:
     light4.light_energy = 0.8
     light4.omni_range = 5.0
     light4.add_to_group("lights")
-     og.add_child(light4)
+    og.add_child(light4)
     light_switches.append(light4)
 
     # Notizen
@@ -1889,7 +1889,7 @@ func _build_attic() -> void:
             _box(workbench_at1, Vector3(dx, 0.4, dz), Vector3(0.1, 0.8, 0.1), m["wood_dark"], false)
     _box(workbench_at1, Vector3(-0.5, 0.95, 0), Vector3(0.25, 0.02, 0.08), m["metal"], false)
     _box(workbench_at1, Vector3(0.3, 0.95, 0), Vector3(0.15, 0.05, 0.15), mat_metal_rusty, false)
-     at.add_child(workbench_at1)
+    at.add_child(workbench_at1)
 
     # --- STAUBIGER BEREICH (MITTE) ---
     # Alte Truhe
@@ -1904,7 +1904,7 @@ func _build_attic() -> void:
     _box(clock_at1, Vector3(0, 2.0, 0.22), Vector3(0.05, 0.15, 0.01), mat_black, false)
     _box(clock_at1, Vector3(0.05, 2.0, 0.22), Vector3(0.08, 0.02, 0.01), mat_black, false)
     _box(clock_at1, Vector3(0, 0.8, 0.21), Vector3(0.3, 0.6, 0.02), mat_black, false)
-     at.add_child(clock_at1)
+    at.add_child(clock_at1)
 
     # --- RECHTER BEREICH (ALTER WOHNRAUM) ---
     # Tisch
@@ -1915,7 +1915,7 @@ func _build_attic() -> void:
     for dx in [-0.72, 0.72]:
         for dz in [-0.36, 0.36]:
             _box(table_at1, Vector3(dx, 0.375, dz), Vector3(0.08, 0.75, 0.08), m["wood"], false)
-     at.add_child(table_at1)
+    at.add_child(table_at1)
 
     # Stühle
     var chair_at1 = _create_pushable_object(at, Vector3(16, y, 15), Vector3(0.5, 0.8, 0.5), m["wood"])
@@ -1959,7 +1959,7 @@ func _build_attic() -> void:
     mesh_cobweb.material_override = _m(Color(0.7, 0.7, 0.7, 0.3), 0.9, 0.0, null)
     mesh_cobweb.material_override.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
     cobweb_at1.add_child(mesh_cobweb)
-     at.add_child(cobweb_at1)
+    at.add_child(cobweb_at1)
 
     var cobweb_at2 = Node3D.new()
     cobweb_at2.name = "Cobweb_AT2"
@@ -1971,7 +1971,7 @@ func _build_attic() -> void:
     mesh_cobweb2.material_override = _m(Color(0.7, 0.7, 0.7, 0.3), 0.9, 0.0, null)
     mesh_cobweb2.material_override.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
     cobweb_at2.add_child(mesh_cobweb2)
-     at.add_child(cobweb_at2)
+    at.add_child(cobweb_at2)
 
     var cobweb_at3 = Node3D.new()
     cobweb_at3.name = "Cobweb_AT3"
@@ -1983,7 +1983,7 @@ func _build_attic() -> void:
     mesh_cobweb3.material_override = _m(Color(0.7, 0.7, 0.7, 0.3), 0.9, 0.0, null)
     mesh_cobweb3.material_override.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
     cobweb_at3.add_child(mesh_cobweb3)
-     at.add_child(cobweb_at3)
+    at.add_child(cobweb_at3)
 
     # Verstreute Papiere
     for i in range(5):
@@ -1995,8 +1995,8 @@ func _build_attic() -> void:
         mesh_paper.mesh.size = Vector2(0.1, 0.15)
         mesh_paper.rotation.x = PI/2 + randf_range(-0.3, 0.3)
         mesh_paper.material_override = mat_paper
-        paper.add_child(mesh_paper)
-         at.add_child(paper)
+       paper.add_child(mesh_paper)
+        at.add_child(paper)
 
     # Kerzenstaender
     var candle_at1 = Node3D.new()
@@ -2012,7 +2012,7 @@ func _build_attic() -> void:
     light_candle.omni_range = 2.0
     light_candle.add_to_group("lights")
     candle_at1.add_child(light_candle)
-     at.add_child(candle_at1)
+    at.add_child(candle_at1)
 
     # Tote Pflanze
     var plant_at1 = Node3D.new()
@@ -2028,8 +2028,8 @@ func _build_attic() -> void:
         stem.rotation.x = randf_range(-0.3, 0.3)
         stem.rotation.z = randf_range(-0.3, 0.3)
         stem.material_override = _m(Color(0.2, 0.15, 0.1), 0.8, 0.0, null)
-        plant_at1.add_child(stem)
-     at.add_child(plant_at1)
+       plant_at1.add_child(stem)
+    at.add_child(plant_at1)
 
     # Verknuepfung der Truhe mit Master-Key
     trunk_at3.hidden_item = master_key
@@ -2041,7 +2041,7 @@ func _build_attic() -> void:
     light1.light_energy = 0.5
     light1.omni_range = 3.0
     light1.add_to_group("lights")
-     at.add_child(light1)
+    at.add_child(light1)
     light_switches.append(light1)
 
     var light2 = OmniLight3D.new()
@@ -2050,7 +2050,7 @@ func _build_attic() -> void:
     light2.light_energy = 0.5
     light2.omni_range = 4.0
     light2.add_to_group("lights")
-     at.add_child(light2)
+    at.add_child(light2)
     light_switches.append(light2)
 
     # Lichtschalter
@@ -2114,7 +2114,7 @@ func _build_basement() -> void:
             _box(workbench_b1, Vector3(dx, 0.4, dz), Vector3(0.1, 0.8, 0.1), m["wood_dark"], false)
     _box(workbench_b1, Vector3(-0.5, 0.95, 0), Vector3(0.25, 0.02, 0.08), m["metal"], false)
     _box(workbench_b1, Vector3(0.3, 0.95, 0), Vector3(0.15, 0.05, 0.15), mat_metal_rusty, false)
-     b.add_child(workbench_b1)
+    b.add_child(workbench_b1)
 
     # Regal
     var shelf_b1 = _create_pushable_object(b, Vector3(7.5, y, 4), Vector3(0.4, 2.0, 3.0), m["wood_dark"])
@@ -2129,8 +2129,8 @@ func _build_basement() -> void:
         mesh_paper.mesh.size = Vector2(0.1, 0.15)
         mesh_paper.rotation.x = PI/2 + randf_range(-0.3, 0.3)
         mesh_paper.material_override = mat_paper
-        paper.add_child(mesh_paper)
-         b.add_child(paper)
+       paper.add_child(mesh_paper)
+        b.add_child(paper)
 
     # --- HEIZUNGSRAUM (MITTE) ---
     # Heizkessel
@@ -2140,7 +2140,7 @@ func _build_basement() -> void:
     _cyl(boiler_b1, Vector3(0, 0.8, 0), 0.5, 1.6, m["metal_rusty"], true)
     _cyl(boiler_b1, Vector3(0, 1.7, 0), 0.1, 0.2, m["metal_rusty"], false)
     _box(boiler_b1, Vector3(0.3, 0.5, 0.4), Vector3(0.15, 0.1, 0.1), mat_gold, false)
-     b.add_child(boiler_b1)
+    b.add_child(boiler_b1)
 
     # Waschmaschinen
     var washing_b1 = Node3D.new()
@@ -2149,7 +2149,7 @@ func _build_basement() -> void:
     _box(washing_b1, Vector3(0, 0.5, 0), Vector3(0.75, 1.0, 0.7), mat_white, true)
     _cyl(washing_b1, Vector3(0, 0.55, 0.36), 0.22, 0.02, mat_glass, false)
     _box(washing_b1, Vector3(0, 0.95, 0.36), Vector3(0.5, 0.08, 0.02), m["metal"], false)
-     b.add_child(washing_b1)
+    b.add_child(washing_b1)
 
     var washing_b2 = Node3D.new()
     washing_b2.name = "Washing_B2"
@@ -2157,7 +2157,7 @@ func _build_basement() -> void:
     _box(washing_b2, Vector3(0, 0.5, 0), Vector3(0.75, 1.0, 0.7), mat_white, true)
     _cyl(washing_b2, Vector3(0, 0.55, 0.36), 0.22, 0.02, mat_glass, false)
     _box(washing_b2, Vector3(0, 0.95, 0.36), Vector3(0.5, 0.08, 0.02), m["metal"], false)
-     b.add_child(washing_b2)
+    b.add_child(washing_b2)
 
     # Eimer
     var bucket_b1 = Node3D.new()
@@ -2173,7 +2173,7 @@ func _build_basement() -> void:
     handle.rotation.x = PI/2
     handle.material_override = m["metal"]
     bucket_b1.add_child(handle)
-     b.add_child(bucket_b1)
+    b.add_child(bucket_b1)
 
     var bucket_b2 = Node3D.new()
     bucket_b2.name = "Bucket_B2"
@@ -2188,7 +2188,7 @@ func _build_basement() -> void:
     handle2.rotation.x = PI/2
     handle2.material_override = m["metal"]
     bucket_b2.add_child(handle2)
-     b.add_child(bucket_b2)
+    b.add_child(bucket_b2)
 
     # Regal
     var shelf_b2 = _create_pushable_object(b, Vector3(15.5, y, 4), Vector3(0.4, 2.0, 3.0), m["wood_dark"])
@@ -2210,7 +2210,7 @@ func _build_basement() -> void:
             _box(workbench_b2, Vector3(dx, 0.4, dz), Vector3(0.1, 0.8, 0.1), m["wood_dark"], false)
     _box(workbench_b2, Vector3(-0.5, 0.95, 0), Vector3(0.25, 0.02, 0.08), m["metal"], false)
     _box(workbench_b2, Vector3(0.3, 0.95, 0), Vector3(0.15, 0.05, 0.15), mat_metal_rusty, false)
-     b.add_child(workbench_b2)
+    b.add_child(workbench_b2)
 
     # Regal
     var shelf_b3 = _create_pushable_object(b, Vector3(23.5, y, 4), Vector3(0.4, 2.2, 4.0), m["wood_dark"])
@@ -2235,7 +2235,7 @@ func _build_basement() -> void:
             var bx = -0.85 + j * 0.3
             var by = 0.24 + i*0.48 + 0.15
             _box(bookshelf_b1, Vector3(bx, by, 0), Vector3(0.06, 0.25, 0.3), mat_fabric_red if (i+j)%3==0 else (mat_fabric_blue if (i+j)%3==1 else mat_fabric_green), false)
-     b.add_child(bookshelf_b1)
+    b.add_child(bookshelf_b1)
 
     # --- VERRIEGELTE TUER (WIRD MIT KELLER-SCHLUESSEL GEOEFFNET) ---
     var door_b1 = _create_door(b, Vector3(4, y, 8), Vector3(DOOR_W, DOOR_H, 0.1), m["metal"], true, "keller_key", "keller")
@@ -2256,7 +2256,7 @@ func _build_basement() -> void:
     light1.omni_range = 5.0
     light1.name = "Light_Storage_Basement"
     light1.add_to_group("lights")
-     b.add_child(light1)
+    b.add_child(light1)
     light_switches.append(light1)
 
     var light2 = OmniLight3D.new()
@@ -2266,7 +2266,7 @@ func _build_basement() -> void:
     light2.omni_range = 5.0
     light2.name = "Light_Boiler_Basement"
     light2.add_to_group("lights")
-     b.add_child(light2)
+    b.add_child(light2)
     light_switches.append(light2)
 
     var light3 = OmniLight3D.new()
@@ -2276,7 +2276,7 @@ func _build_basement() -> void:
     light3.omni_range = 5.0
     light3.name = "Light_Workshop_Basement"
     light3.add_to_group("lights")
-     b.add_child(light3)
+    b.add_child(light3)
     light_switches.append(light3)
 
     var light4 = OmniLight3D.new()
@@ -2286,7 +2286,7 @@ func _build_basement() -> void:
     light4.omni_range = 7.0
     light4.name = "Light_Corridor_Basement"
     light4.add_to_group("lights")
-     b.add_child(light4)
+    b.add_child(light4)
     light_switches.append(light4)
 
     var light5 = OmniLight3D.new()
@@ -2296,7 +2296,7 @@ func _build_basement() -> void:
     light5.omni_range = 5.0
     light5.name = "Light_Bathroom_Basement"
     light5.add_to_group("lights")
-     b.add_child(light5)
+    b.add_child(light5)
     light_switches.append(light5)
 
     var light6 = OmniLight3D.new()
@@ -2306,7 +2306,7 @@ func _build_basement() -> void:
     light6.omni_range = 5.0
     light6.name = "Light_Storage2_Basement"
     light6.add_to_group("lights")
-     b.add_child(light6)
+    b.add_child(light6)
     light_switches.append(light6)
 
     # Notizen
@@ -2341,7 +2341,7 @@ func _build_sub_basement() -> void:
     var boat = Node3D.new()
     boat.name = "Boat"
     boat.position = Vector3(8, y + 0.15, 6)
-     sb.add_child(boat)
+    sb.add_child(boat)
     _box(boat, Vector3(0, 0, 0), Vector3(1.2, 0.3, 2.5), m["wood_light"], true)
     _box(boat, Vector3(0, 0.15, -0.6), Vector3(1.4, 0.15, 0.3), m["wood_dark"], false)
     _box(boat, Vector3(0, 0.15, 0.6), Vector3(1.4, 0.15, 0.3), m["wood_dark"], false)
@@ -2366,7 +2366,7 @@ func _build_sub_basement() -> void:
     light1.omni_range = 3.0
     light1.name = "Light_Corner1_SubBasement"
     light1.add_to_group("lights")
-     sb.add_child(light1)
+    sb.add_child(light1)
     light_switches.append(light1)
 
     var light2 = OmniLight3D.new()
@@ -2376,7 +2376,7 @@ func _build_sub_basement() -> void:
     light2.omni_range = 3.0
     light2.name = "Light_Corner2_SubBasement"
     light2.add_to_group("lights")
-     sb.add_child(light2)
+    sb.add_child(light2)
     light_switches.append(light2)
 
     var light3 = OmniLight3D.new()
@@ -2386,7 +2386,7 @@ func _build_sub_basement() -> void:
     light3.omni_range = 4.0
     light3.name = "Light_Fluss_SubBasement"
     light3.add_to_group("lights")
-     sb.add_child(light3)
+    sb.add_child(light3)
     light_switches.append(light3)
 
     # Notizen

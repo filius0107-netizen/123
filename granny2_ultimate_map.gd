@@ -174,7 +174,7 @@ func _box(parent: Node3D, pos: Vector3, size: Vector3, mat: Material, collide: b
         collision.shape = BoxShape3D.new()
         collision.shape.size = size
         collision.position = pos
-       parent.add_child(collision)
+        parent.add_child(collision)
 
 func _cyl(parent: Node3D, pos: Vector3, radius: float, height: float, mat: Material, collide: bool) -> void:
     var mesh = MeshInstance3D.new()
@@ -190,7 +190,7 @@ func _cyl(parent: Node3D, pos: Vector3, radius: float, height: float, mat: Mater
         collision.shape.radius = radius
         collision.shape.height = height
         collision.position = pos
-       parent.add_child(collision)
+        parent.add_child(collision)
 
 func _floor(parent: Node3D, x1: float, x2: float, z1: float, z2: float, y: float, mat: Material) -> void:
     var size = Vector3(x2 - x1, 0.1, z2 - z1)
@@ -604,7 +604,7 @@ func _update_inventory_ui() -> void:
             label.font_size = 18
             label.position = Vector2(10, y)
             label.size = Vector2(260, 25)
-          keys_container.add_child(label)
+            keys_container.add_child(label)
             y += 25
     
     var tools_container = inventory_ui.get_child(5)
@@ -617,7 +617,7 @@ func _update_inventory_ui() -> void:
             label.font_size = 18
             label.position = Vector2(10, y)
             label.size = Vector2(260, 25)
-          tools_container.add_child(label)
+            tools_container.add_child(label)
             y += 25
     
     var notes_container = inventory_ui.get_child(7)
@@ -631,7 +631,7 @@ func _update_inventory_ui() -> void:
             btn.position = Vector2(10, y)
             btn.size = Vector2(260, 25)
             btn.pressed.connect(func(): _show_note(note_id))
-          notes_container.add_child(btn)
+            notes_container.add_child(btn)
             y += 25
 
 func _update_tasks_ui() -> void:
@@ -645,7 +645,7 @@ func _update_tasks_ui() -> void:
         label.position = Vector2(10, y)
         label.size = Vector2(260, 25)
         label.self_modulate = Color(0.5, 0.8, 0.5) if task["completed"] else Color(1, 0.8, 0.8)
-       container.add_child(label)
+        container.add_child(label)
         y += 25
 
 func _show_interaction(text: String) -> void:
@@ -1995,7 +1995,7 @@ func _build_attic() -> void:
         mesh_paper.mesh.size = Vector2(0.1, 0.15)
         mesh_paper.rotation.x = PI/2 + randf_range(-0.3, 0.3)
         mesh_paper.material_override = mat_paper
-       paper.add_child(mesh_paper)
+        paper.add_child(mesh_paper)
         at.add_child(paper)
 
     # Kerzenstaender
@@ -2028,7 +2028,7 @@ func _build_attic() -> void:
         stem.rotation.x = randf_range(-0.3, 0.3)
         stem.rotation.z = randf_range(-0.3, 0.3)
         stem.material_override = _m(Color(0.2, 0.15, 0.1), 0.8, 0.0, null)
-       plant_at1.add_child(stem)
+        plant_at1.add_child(stem)
     at.add_child(plant_at1)
 
     # Verknuepfung der Truhe mit Master-Key
@@ -2129,7 +2129,7 @@ func _build_basement() -> void:
         mesh_paper.mesh.size = Vector2(0.1, 0.15)
         mesh_paper.rotation.x = PI/2 + randf_range(-0.3, 0.3)
         mesh_paper.material_override = mat_paper
-       paper.add_child(mesh_paper)
+        paper.add_child(mesh_paper)
         b.add_child(paper)
 
     # --- HEIZUNGSRAUM (MITTE) ---
